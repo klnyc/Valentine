@@ -1,35 +1,61 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [isValentine, setIsValentine] = useState(false);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <h1>~ Riolu & Capy ~</h1>
+
+      <div className="question-section">
+        <div className="riolu-container">
+          <img
+            src="https://media.tenor.com/HVXRMg8BstoAAAAi/riolu-dance.gif"
+            className="riolu-gif"
+          />
+        </div>
+
+        <div className="question-container">
+          <h2>Will you be my Valentine?</h2>
+          <div className="button-container">
+            <button onClick={() => setIsValentine(true)}>Yes</button>
+            <button onClick={() => setIsValentine(false)}>No</button>
+          </div>
+        </div>
+
+        <div className="capybara-container">
+          <img
+            src="https://media.tenor.com/_iNTPDlgTgEAAAAi/coffee-bara-capybara.gif"
+            className="capybara-gif"
+          />
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
+      <div className={`valentine-container ${isValentine ? "show" : ""}`}>
+        <img src="https://media1.tenor.com/m/87IGhMRUfdoAAAAd/lady-and.gif" />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      {isValentine && (
+        <div className="confetti">
+          {Array.from({ length: 30 }).map((_, i) => (
+            <span
+              key={i}
+              style={{
+                "--x": `${Math.random() * 100}vw`,
+                "--rotate": `${Math.random() * 360}deg`,
+                "--color": `hsl(${Math.random() * 360}, 90%, 60%)`,
+                "--size": `${4 + Math.random() * 6}px`,
+                "--delay": `${Math.random() * 0.5}s`,
+              }}
+            >
+              ❤️
+            </span>
+          ))}
+        </div>
+      )}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
