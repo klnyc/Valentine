@@ -40,7 +40,7 @@ function App() {
       </div>
 
       <div className={`valentine-container ${isValentine ? "show" : ""}`}>
-        <img src="https://media1.tenor.com/m/87IGhMRUfdoAAAAd/lady-and.gif" />
+        <img src="https://media1.tenor.com/m/87IGhMRUfdoAAAAd/lady-and.gif" className="valentine-gif" />
       </div>
 
       {isValentine && (

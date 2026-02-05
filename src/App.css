@@ -52,6 +52,11 @@
   opacity: 1;
 }
 
+.valentine-gif {
+  width: 100%;
+  max-width: 400px;
+}
+
 .confetti-wrapper {
   position: relative;
   overflow: hidden;
