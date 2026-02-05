@@ -1,5 +1,12 @@
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import "./App.css";
+
+interface CustomCSSProperties extends CSSProperties {
+  "--x"?: string;
+  "--rotate"?: string;
+  "--delay"?: string;
+  "--size"?: string;
+}
 
 function App() {
   const [isValentine, setIsValentine] = useState(false);
@@ -41,13 +48,15 @@ function App() {
           {Array.from({ length: 30 }).map((_, i) => (
             <span
               key={i}
-              style={{
-                "--x": `${Math.random() * 100}vw`,
-                "--rotate": `${Math.random() * 360}deg`,
-                "--color": `hsl(${Math.random() * 360}, 90%, 60%)`,
-                "--size": `${4 + Math.random() * 6}px`,
-                "--delay": `${Math.random() * 0.5}s`,
-              }}
+              style={
+                {
+                  "--x": `${Math.random() * 100}vw`,
+                  "--rotate": `${Math.random() * 360}deg`,
+                  "--color": `hsl(${Math.random() * 360}, 90%, 60%)`,
+                  "--size": `${4 + Math.random() * 6}px`,
+                  "--delay": `${Math.random() * 0.5}s`,
+                } as CustomCSSProperties
+              }
             >
               ❤️
             </span>
