@@ -1,12 +1,6 @@
-import { useState, type CSSProperties } from "react";
-import "./App.css";
-
-interface CustomCSSProperties extends CSSProperties {
-  "--x"?: string;
-  "--rotate"?: string;
-  "--delay"?: string;
-  "--size"?: string;
-}
+import { useState } from "react";
+import "./styles/App.css";
+import { Confetti } from "./Confetti";
 
 function App() {
   const [isValentine, setIsValentine] = useState(false);
@@ -40,29 +34,13 @@ function App() {
       </div>
 
       <div className={`valentine-container ${isValentine ? "show" : ""}`}>
-        <img src="https://media1.tenor.com/m/87IGhMRUfdoAAAAd/lady-and.gif" className="valentine-gif" />
+        <img
+          src="https://media1.tenor.com/m/87IGhMRUfdoAAAAd/lady-and.gif"
+          className="valentine-gif"
+        />
       </div>
 
-      {isValentine && (
-        <div className="confetti">
-          {Array.from({ length: 30 }).map((_, i) => (
-            <span
-              key={i}
-              style={
-                {
-                  "--x": `${Math.random() * 100}vw`,
-                  "--rotate": `${Math.random() * 360}deg`,
-                  "--color": `hsl(${Math.random() * 360}, 90%, 60%)`,
-                  "--size": `${4 + Math.random() * 6}px`,
-                  "--delay": `${Math.random() * 0.5}s`,
-                } as CustomCSSProperties
-              }
-            >
-              ❤️
-            </span>
-          ))}
-        </div>
-      )}
+      {isValentine && <Confetti />}
     </>
   );
 }
