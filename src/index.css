@@ -1,6 +1,6 @@
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-family: 'Dancing Script', cursive;
+  font-family: "Dancing Script", cursive;
   line-height: 1.5;
   font-weight: 400;
 
@@ -40,6 +40,8 @@ button {
   background-color: darkslateblue;
   cursor: pointer;
   transition: border-color 0.25s;
+  will-change: filter;
+  transition: filter 300ms;
 }
 button:hover {
   filter: drop-shadow(0 0 2em red);
